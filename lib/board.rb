@@ -10,7 +10,7 @@ class Board
     @player_o = player_o
   end
 
-  public 
+  public
 
   def empty
     # check if the board is empty or not
@@ -19,7 +19,7 @@ class Board
     end
   end
 
-  
+
 
   def check_box_empty?(cell)
     # This method will check if the box on the board are empty or not
