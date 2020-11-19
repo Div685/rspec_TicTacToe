@@ -2,6 +2,7 @@
 
 class Board
   attr_accessor :check_box
+  attr_reader :player_x, :player_o
 
   def initialize(player_x, player_o)
     @check_box = []
