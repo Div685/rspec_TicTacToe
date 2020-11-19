@@ -8,7 +8,9 @@ describe Board do
     let(:board) { Board.new(player1, player2) }
     let(:check_box) { [] }
     let(:board_full) { ['X','O','X','O','X','O','O','X','O']}
-    let(:board_not_full) { ['X','O','_','O','X','_','O','X','O']}
+    let(:board_not_full) { ['X','O','_','O','X','_','O','X','_']}
+    let(:player1_win) { ['X','X','X','O','O','_','_','_','_'] }
+    let(:player2_win) { ['X','X','_','O','O','O','_','_','_'] }
 
     describe '#initialize' do
         it 'checks for a player1' do
@@ -40,7 +42,7 @@ describe Board do
 
         context 'when player is involved' do
             before { board.empty }
-            
+
             it 'return true with no choice' do
                 expect(board.check_box_empty?(3)).to eql(true)
             end
@@ -53,7 +55,7 @@ describe Board do
     end
 
     describe '#check_box_full?' do
-        
+
         it 'returns true if board is full' do
             board.check_box = board_full
             expect(board.check_box_full?).to eql(true)
@@ -71,19 +73,80 @@ describe Board do
     end
 
     describe '#update_display_board' do
-        before { board.empty }
-        
-        it 'returns player symbol if choice is correct ' do
-            board.update_display_board(player1, 3)
-            expect(board.check_box[2]).to eql(player1.symbol)
+        before {
+            board.empty
+            @player_choice = board.update_display_board(player=player1, choice)
+        }
+
+        context 'when player choice is between range 1-9' do
+            let(:choice) { 3 }
+            let(:player) { player1 }
+
+            it 'returns player symbol' do
+                expect(board.check_box[choice - 1]).to eql(player.symbol)
+            end
         end
 
-        it 'returns nil if choice is not between 1-9' do  
-            board.update_display_board(player2, 100)
-            expect(board.check_box[99]).to eql(nil)
+        context 'when player choice is not between range 1-9' do
+            let(:choice) { 100 }
+
+            it 'returns nil' do
+                expect(board.check_box[choice - 1]).to eql(nil)
+            end
+        end
+
+        context 'when player choice is string' do
+            let(:choice) { 'a' }
+
+            it 'returns false' do
+                expect(@player_choice).to eql(false)
+            end
+        end
+
+        context 'when player choice is float' do
+            let(:choice) { 2.4 }
+            let(:player) { player1 }
+
+            it 'returns player symbol and update check_box' do
+                expect(@player_choice).to eql(player.symbol)
+            end
         end
     end
 
+    describe '#winner?' do
+        before { board.empty }
+        context 'when player1 is winner' do
+            it 'return true' do
+                board.check_box = player1_win
 
+                expect(board.winner?).to eql(true)
+            end
+        end
+
+        context 'when player2 is winner' do
+            it 'return true' do
+                board.check_box = player2_win
+
+                expect(board.winner?).to eql(true)
+            end
+        end
+
+        context 'when draw' do
+            it 'return false' do
+                board.check_box = board_full
+
+                expect(board.winner?).to eql(false)
+            end
+        end
+
+        context 'when next move is winning' do
+            it 'return true' do
+                board.check_box = board_not_full
+                board.check_box[8] = 'X'
+
+                expect(board.winner?).to eql(true)
+            end
+        end
+    end
 
 end
