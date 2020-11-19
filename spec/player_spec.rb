@@ -1,5 +1,6 @@
 require './lib/player'
 
+
 describe Player do
   let(:p1) { Player.new('player1', 'X') }
   let(:p2) { Player.new('player2', 'O') }
