@@ -37,6 +37,7 @@ class Board
     return false unless choice.to_i.between?(1, 9)
 
     @check_box[choice - 1] = player.symbol
+    system("clear")
   end
 
   def winner?
