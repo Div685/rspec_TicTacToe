@@ -82,6 +82,10 @@ To play the game follow the getting started steps mentioned above this file. Aft
 - You will play in turns, in sequence till the board is full then it will announce the game results ie, draw or winner.
 - If you want to play again you can say (Y) yes or entirely quit the game by choosing (N).
 
+**To test the code with rspec.**
+  - install rspec using `gem install rspec` 
+  - run `rspec` or `rspec --format doc` on your terminal to test the code .
+
 ## Contributing
 
 Contributions, issues, and feature requests are welcome!
@@ -97,17 +101,24 @@ This project is [MIT](https://github.com/IjayAbby/Tic-Tac-Toe/blob/feature/LICEN
 
 ## Authors
 
-👤 **Ijay Abby**
-
-- Github: [@IjayAbby](https://github.com/IjayAbby)
-- Twitter: [@Ijay_js](https://twitter.com/Ijay_js)
-- LinkedIn: [Abigael Nyangasi](https://www.linkedin.com/in/ijayabby4/)
 
 👤 **Divyesh Patel**
 
 - GitHub: [@Div685](https://github.com/Div685)
 - Twitter: [@div_685](https://twitter.com/div_685)
 - LinkedIn: [Divyesh Patel](https://www.linkedin.com/in/divyesh-patel-2a15a6107)
+
+👤 **Dipesh Bajgain**
+
+- GitHub: [@dipbazz](https://github.com/dipbazz)
+- Twitter: [@dipbazz](https://twitter.com/dipbazz)
+- LinkedIn: [Dipesh Bajgain](https://www.linkedin.com/in/dipbazz/)
+
+👤 **Ijay Abby**
+
+- Github: [@IjayAbby](https://github.com/IjayAbby)
+- Twitter: [@Ijay_js](https://twitter.com/Ijay_js)
+- LinkedIn: [Abigael Nyangasi](https://www.linkedin.com/in/ijayabby4/)
 
 ## Acknowledgments
 
