@@ -7,6 +7,8 @@ describe Board do
     let(:player2) { Player.new('p2', 'O') }
     let(:board) { Board.new(player1, player2) }
     let(:check_box) { [] }
+    let(:board_full) { ['X','O','X','O','X','O','O','X','O']}
+    let(:board_not_full) { ['X','O','_','O','X','_','O','X','O']}
 
     describe '#initialize' do
         it 'checks for a player1' do
@@ -38,7 +40,7 @@ describe Board do
 
         context 'when player is involved' do
             before { board.empty }
-
+            
             it 'return true with no choice' do
                 expect(board.check_box_empty?(3)).to eql(true)
             end
@@ -49,6 +51,39 @@ describe Board do
             end
         end
     end
+
+    describe '#check_box_full?' do
+        
+        it 'returns true if board is full' do
+            board.check_box = board_full
+            expect(board.check_box_full?).to eql(true)
+        end
+
+        it 'returns false if it has any empty cell' do
+            board.check_box = board_not_full
+            expect(board.check_box_full?).to eql(false)
+        end
+
+        it 'returns false if board is empty' do
+            expect(board.check_box_full?).to eql(false)
+        end
+
+    end
+
+    describe '#update_display_board' do
+        before { board.empty }
+        
+        it 'returns player symbol if choice is correct ' do
+            board.update_display_board(player1, 3)
+            expect(board.check_box[2]).to eql(player1.symbol)
+        end
+
+        it 'returns nil if choice is not between 1-9' do  
+            board.update_display_board(player2, 100)
+            expect(board.check_box[99]).to eql(nil)
+        end
+    end
+
 
 
 end
