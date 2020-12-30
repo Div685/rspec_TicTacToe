@@ -106,7 +106,7 @@ This project is [MIT](https://github.com/IjayAbby/Tic-Tac-Toe/blob/feature/LICEN
 
 - GitHub: [@Div685](https://github.com/Div685)
 - Twitter: [@div_685](https://twitter.com/div_685)
-- LinkedIn: [Divyesh Patel](https://www.linkedin.com/in/divyesh-patel-2a15a6107)
+- LinkedIn: [Divyesh Patel](https://www.linkedin.com/in/divyesh-daxa-patel/)
 
 👤 **Dipesh Bajgain**
 
